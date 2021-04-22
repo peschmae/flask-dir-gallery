@@ -35,21 +35,14 @@ img {
     display: block;
 }
     </style>
-    <script src="https://code.jquery.com/jquery-1.10.2.min.js" charset="utf-8"></script>
-    <script src="https://luis-almeida.github.io/unveil/jquery.unveil.js" charset="utf-8"></script>
-    <script>
-$(document).ready(function() {
-    $('img').unveil(500);
-});
-    </script>
 </head>
 <body>
     {% for image in images %}
-      <div class="floating">
-        <a class="image" href="{{ image.src }}" style="width: {{ image.width }}px; height: {{ image.height }}px">
-            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="{{ image.src }}?w={{ image.width }}&amp;h={{ image.height }}" width="{{ image.width }}" height="{{ image.height }}" />
-        </a>
-      </div>
+        <div class="floating">
+            <a class="image" href="{{ image.src }}" style="width: {{ image.width }}px; height: {{ image.height }}px">
+                <img src="{{ image.src }}?w={{ image.width }}&amp;h={{ image.height }}" width="{{ image.width }}" height="{{ image.height }}" loading="lazy" />
+            </a>
+        </div>
     {% endfor %}
 </body>
 '''
